@@ -1,11 +1,17 @@
+'use client';
+
 import ImagePicker from '@/components/meals/image-picker';
 import classes from './page.module.css';
 import { shareMeal } from '@/lib/actions';
 import MealsFormSubmit from '@/components/meals/meals-form-submit';
+import { useActionState } from 'react';
 
 export default function ShareMealPage() {
 
-  
+  //(server Action, 컴포넌트의 초기 state) 2가지 인수 필요, 
+  // 지금은 response message 형태
+  // [상태, 호출 후 받은 action ]
+  const [state, formAction] = useActionState(shareMeal, {message: null});
   return (
     <>
       <header className={classes.header}>
@@ -15,7 +21,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form} action={shareMeal}>
+        <form className={classes.form} action={formAction}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -44,6 +50,7 @@ export default function ShareMealPage() {
             ></textarea>
           </p>
           <ImagePicker lable="Your image" name="image"/>
+          {state.message && <p>{state.message}</p>}
           <p className={classes.actions}>
             <MealsFormSubmit />
           </p>
