@@ -1,84 +1,96 @@
-# next-react
+# 🍽 Foodies – Next.js & React 실습 프로젝트
 
-이 프로젝트는 **Udemy – Next.js & React (강사 Maximilian Schwarzmüller)** 강의를 기반으로 한 실습용 음식 레시피 공유 커뮤니티 프로젝트입니다.
-Next.js와 React의 기본 구조를 이해하고, 로컬 개발 환경을 직접 구성하는 것을 목표로 합니다.
+이 프로젝트는 **Udemy – Next.js & React (강사: Maximilian Schwarzmüller)** 강의를 기반으로 한
+**음식 레시피 공유 커뮤니티 실습 프로젝트**입니다.
+
+Next.js(App Router 기반)와 React의 핵심 개념을 학습하고,
+로컬 개발 환경 구성부터 데이터 처리까지 직접 실습하는 것을 목표로 합니다.
+
+---
+
+## 🚀 기술 스택
+
+### Frontend
+
+* **Next.js** 16.1.1
+* **React** 19.2.3
+* **React DOM** 19.2.3
+
+### Backend / Utilities
+
+* **better-sqlite3** – 로컬 SQLite 데이터베이스 처리
+* **slugify** – URL 친화적인 slug 생성
+* **xss** – 사용자 입력값 보안 처리 (XSS 방지)
+
+### Development Tools
+
+* **ESLint** 8
+* **eslint-config-next** 14.0.3
+
+---
+
+## 📦 프로젝트 스크립트
+
+```bash
+npm run dev
+```
+
+* 개발 서버 실행 (기본 포트: `http://localhost:3000`)
+
+```bash
+npm run build
+```
+
+* 프로덕션 빌드 생성
+
+```bash
+npm run start
+```
+
+* 빌드된 결과를 프로덕션 모드로 실행
+
+```bash
+npm run lint
+```
+
+* ESLint를 이용한 코드 스타일 및 오류 검사
 
 ---
 
 ## 🛠 개발 환경
 
 * **OS**: macOS (Apple Silicon 기준)
-* **Shell**: zsh (macOS Catalina 이후 기본 쉘)
+* **Shell**: zsh
 * **Node.js**: v20
 * **Package Manager**: npm
-* **Tool**: Homebrew, nvm
+* **Tooling**: Homebrew, nvm
 
 ---
 
-## 📦 Homebrew 설치
+## 🟢 Node.js & npm 설정
 
-Homebrew는 macOS용 패키지 관리자입니다.
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### Homebrew 환경 변수 설정
-
-```bash
-echo >> /Users/sun/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/sun/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-
-### 설치 확인
-
-```bash
-brew -v
-```
-
----
-
-## 🐚 Shell 정보
-
-* macOS Catalina부터 기본 쉘은 **zsh**
-* 현재 설치된 모든 쉘 확인
-
-```bash
-cat /etc/shells
-```
-
----
-
-## 🟢 Node.js 설치 (v20)
+### Node.js 설치 (v20)
 
 ```bash
 brew install node@20
 ```
 
-### Node 환경 변수 설정
-
-```bash
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/node@20/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@20/include"
-```
-
-### 설치 확인
+설치 확인:
 
 ```bash
 node -v
+npm -v
 ```
 
 ---
 
-## 🔁 nvm (Node Version Manager) 설치
+## 🔁 nvm (Node Version Manager)
 
 ```bash
 brew install nvm
 ```
 
-### nvm 환경 변수 설정
+환경 변수 설정:
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
@@ -86,25 +98,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 ```
 
-### 설치 확인
-
-```bash
-nvm -v
-```
-
 ---
 
-## 📦 npm 확인
+## 📥 프로젝트 실행 방법
 
-```bash
-npm -v
-```
-
----
-
-## 🚀 프로젝트 실행 방법
-
-### 1. 패키지 설치
+### 1. 의존성 설치
 
 ```bash
 npm install
@@ -116,7 +114,7 @@ npm install
 npm run dev
 ```
 
-브라우저에서 아래 주소로 접속합니다.
+브라우저에서 접속:
 
 ```
 http://localhost:3000
@@ -130,5 +128,14 @@ http://localhost:3000
 node initdb.js
 ```
 
-해당 스크립트는 강의 실습을 위한 초기 데이터 세팅용입니다.
+* 강의 실습을 위한 **초기 레시피 데이터**를 SQLite DB에 생성합니다.
+* 최초 1회만 실행하면 됩니다.
+
+---
+
+## 📌 참고 사항
+
+* 본 프로젝트는 **학습 목적**의 실습 코드입니다.
+* 최신 **React 19 + Next 16** 조합을 사용하고 있어,
+  일부 API는 이전 Next.js 버전과 다를 수 있습니다.
 
