@@ -3,6 +3,13 @@ import Link from 'next/link';
 import classes from './page.module.css';
 import ImageSlideshow from '@/components/images/image-slideshow';
 
+// 창 위에 타이틀로 / 인경우 나타남
+export const metadata = {
+  title: 'All meals',
+  description: 'Browse the delicious meals shared by our vibrant community.',
+};
+
+
 export default function Home() {
   return (
     <>

@@ -13,7 +13,7 @@ import { Suspense } from "react";
 // NextJS는 이 Suspense 컴포넌트와 리액트 컨셉을 포용하고 
 // 데이터를 fetching 하고 이런 promise 를 반환한다.
 async function Meals() {
-
+    console.log("Fetching meals");
     const meals = await getMeals();
 
     return <MealsGrid meals={meals}/>

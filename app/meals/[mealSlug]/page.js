@@ -1,7 +1,22 @@
 import Image from "next/image";
-import classes from "./page.module.css"
-import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
+
+import { getMeal } from "@/lib/meals";
+import classes from "./page.module.css"
+
+export async function generateMetadata({params}) {
+    const { mealSlug } = await params;
+    const meal = await getMeal(mealSlug);
+
+    if(!meal) {
+        notFound();
+    }
+    
+    return {
+        title: meal.title,
+        description: meal.summary,
+    };
+}
 
 
 // dangerouslySetInnerHTML 을 쓰는 이유. 검증. 
@@ -10,9 +25,10 @@ import { notFound } from "next/navigation";
 
 // page.js 에 정의된 모든 컴포넌트는 params props 를 받을 수 있다. key-value 
 // params.mealSlug
-export default function MealDetailsPage({params}) {
+export default async function MealDetailsPage({params}) {
 
-    const meal = getMeal(params.mealSlug);
+    const { mealSlug } = await params;
+    const meal = await getMeal(mealSlug);
 
     if(!meal) {
         notFound();
