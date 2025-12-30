@@ -1,6 +1,6 @@
 # next-react
 
-이 프로젝트는 **Udemy – Next.js & React (강사 Maximilian Schwarzmüller)** 강의를 기반으로 한 실습용 프로젝트입니다.
+이 프로젝트는 **Udemy – Next.js & React (강사 Maximilian Schwarzmüller)** 강의를 기반으로 한 실습용 맛집 공유 커뮤니티 프로젝트입니다.
 Next.js와 React의 기본 구조를 이해하고, 로컬 개발 환경을 직접 구성하는 것을 목표로 합니다.
 
 ---
